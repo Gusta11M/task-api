@@ -77,14 +77,16 @@ O servidor será iniciado em `http://localhost:3000` por padrão.
 
 ---
 
-## 📌 Funcionalidades Planejadas
+## ✅ Funcionalidades Implementadas & Planeadas
 
-- [ ] CRUD de tarefas (Create, Read, Update, Delete)
-- [ ] Validação de dados de entrada
-- [ ] Autenticação e autorização de usuários
-- [ ] Integração com banco de dados (MongoDB)
-- [ ] Documentação da API com Swagger
-- [ ] Testes unitários e de integração
+
+- [x] CRUD de tarefas (Create, Read, Update, Delete)
+- [x] Validação de dados de entrada
+- [x] Autenticação e autorização de usuários
+- [x] Integração com banco de dados (MongoDB)
+- [ ] Criar documentação interativa com Swagger
+- [ ] Implementar testes com Jest e Supertest
+- [ ] Configurar ambiente de CI/CD para testes automáticos
 
 ---
 
