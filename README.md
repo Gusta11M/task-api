@@ -1,131 +1,129 @@
-# 📝 Task API
+# 🧠 Task Manager API
 
 ![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Node.js](https://img.shields.io/badge/node-18.x-brightgreen)
-![Express](https://img.shields.io/badge/express.js-4.x-lightgrey)
-![MongoDB](https://img.shields.io/badge/MongoDB-%23268E3C?logo=mongodb&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-enabled-yellow)
-![Jest](https://img.shields.io/badge/tested%20with-jest-red)
+![MongoDB](https://img.shields.io/badge/mongodb-%20green)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue)
 
-API RESTful para registo de utilizadores, autenticação e gestão de tarefas.  
-Feita com **Node.js**, **Express**, **MongoDB**, **JWT** e **Jest**.
+A simple and complete task management REST API built with **Node.js**, **Express**, and **MongoDB**. This project includes **user authentication (JWT)**, **CRUD operations for tasks**, **Swagger documentation**, and **automated tests** with **Jest** and **Supertest**.
 
 ---
 
-## 📦 Features
+## 📌 Features
 
-- ✅ Registo e Login com token JWT
-- ✅ CRUD de tarefas por utilizador autenticado
-- ✅ Validação com `express-validator`
-- ✅ Testes automatizados com Jest + Supertest
-- ✅ Testes unitários e de integração com Mongo em memória
-- 🚧 Documentação com Swagger (em progresso)
-- 🚀 Deploy opcional em Render/Fly/Heroku (em progresso)
+- ✅ Register and login with hashed passwords (bcrypt) and JWT tokens  
+- ✅ Create, read, update and delete personal tasks  
+- ✅ Tasks linked to authenticated users  
+- ✅ Protected routes (middleware with token check)  
+- ✅ MongoDB + Mongoose for data modeling  
+- ✅ Swagger/OpenAPI documentation  
+- ✅ Fully tested (auth + tasks)  
+- ✅ Clean, modular codebase  
+- ✅ Ready for deployment  
 
 ---
 
-## 🚀 Instalação
+## 📂 Project Structure
 
-```bash
-git clone https://github.com/Gusta11M/task-api.git
-cd task-api
-npm install
+```
+.
+├── controllers/
+├── middleware/
+├── models/
+├── routes/
+├── tests/
+├── swagger.yaml
+├── app.js
+└── server.js
 ```
 
 ---
 
-## ⚙️ Ambiente (.env)
+## 🧪 Tests
 
-Cria um ficheiro `.env` na raiz com:
-
-```dotenv
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/taskapi
-JWT_SECRET=sua_chave_secreta_aqui
-```
-
----
-
-## 🧪 Testes
+Run all tests:
 
 ```bash
 npm test
 ```
 
-Testes com cobertura (coverage):
+Test coverage includes:
+
+- ✅ Register  
+- ✅ Login  
+- ✅ Task creation, fetching, updating, deleting  
+- ✅ Error cases (unauthorized, invalid data, etc.)  
+
+---
+
+## 🔐 Authentication
+
+Authentication is handled via **JWT tokens**. After registering or logging in, include your token in the `x-auth-token` header of protected routes:
+
+```http
+x-auth-token: Bearer <your_token>
+```
+
+---
+
+## 📄 API Documentation (Swagger)
+
+Available at:  
+**`/api-docs`**
+
+Includes:
+
+- Auth routes (`/register`, `/login`)  
+- Task routes (`/tasks`, `/tasks/:id`)  
+
+---
+
+## 🛠️ Tech Stack
+
+- Node.js  
+- Express.js  
+- MongoDB + Mongoose  
+- JWT for auth  
+- bcryptjs  
+- dotenv  
+- Swagger (swagger-jsdoc + swagger-ui-express)  
+- Jest + Supertest  
+
+---
+
+## 🚀 Getting Started
 
 ```bash
-npm run test -- --coverage
+git clone https://github.com/Gusta11M/task-api.git
+cd task-api
+npm install
+cp .env.example .env
+# configure your environment variables (Mongo URI, JWT secret, PORT)
+
+npm run dev  # start with nodemon
 ```
 
 ---
 
-## 🧭 Endpoints principais
+## 📌 .env Example
 
-### 🔐 Auth
-
-| Método | Endpoint             | Descrição             |
-|--------|----------------------|------------------------|
-| POST   | `/api/auth/register` | Registar utilizador   |
-| POST   | `/api/auth/login`    | Login de utilizador   |
-
-### ✅ Tasks (token JWT necessário)
-
-| Método | Endpoint            | Descrição                     |
-|--------|---------------------|-------------------------------|
-| POST   | `/api/tasks`        | Criar nova tarefa             |
-| GET    | `/api/tasks`        | Listar tarefas do utilizador |
-| PUT    | `/api/tasks/:id`    | Atualizar tarefa              |
-| DELETE | `/api/tasks/:id`    | Apagar tarefa                 |
-
----
-
-## 🔑 Autenticação
-
-Todas as rotas de tarefa requerem o envio do token JWT no header:
-
-```
-x-auth-token: Bearer <seu_token>
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/task-api
+JWT_SECRET=your_jwt_secret_here
 ```
 
 ---
 
-## 🧪 Exemplo de uso (via Postman)
+## 📝 License
 
-1. Regista um utilizador:  
-   `POST /api/auth/register`
-
-2. Usa o token de resposta para chamadas protegidas
-
-3. Cria uma tarefa:  
-   `POST /api/tasks` com JSON:
-
-```json
-{
-  "title": "Estudar Node.js",
-  "description": "Rever autenticação JWT"
-}
-```
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 🛡️ Segurança
+## 🙋‍♂️ Author
 
-- JWT para autenticação
-- Validação robusta com `express-validator`
-- Proteção contra acesso a recursos de outros utilizadores
+Gustavo Marques  
+[GitHub](https://github.com/Gusta11M)
 
----
-
-## 📄 Licença
-
-MIT © [Gusta11M](https://github.com/Gusta11M)
-
----
-
-## 💡 Contribuir
-
-Pull Requests são bem-vindos! ✨  
-Sinta-se à vontade para abrir Issues, dar sugestões ou enviar melhorias.
