@@ -4,7 +4,6 @@
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Node.js](https://img.shields.io/badge/node-18.x-brightgreen)
 ![MongoDB](https://img.shields.io/badge/mongodb-%20green)
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue)
 
 A simple and complete task management REST API built with **Node.js**, **Express**, and **MongoDB**. This project includes **user authentication (JWT)**, **CRUD operations for tasks**, **Swagger documentation**, and **automated tests** with **Jest** and **Supertest**.
 
